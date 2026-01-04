@@ -88,7 +88,7 @@ function buildDocs() {
     const magicBrackets = /\[\[(.*)\]\]/g;
     const dedented = dedent(code);
     const inline = dedented.replace(magicBrackets, "$1");
-    const escaped = hljs.highlight("html", dedented.replace(magicBrackets, ""))
+    const escaped = hljs.highlight(dedented.replace(magicBrackets, ""), {language: "html"})
       .value;
 
     return `<div class="example">
@@ -100,7 +100,7 @@ function buildDocs() {
     </div>`;
   }
 
-  glob("docs/*", (err, files) => {
+  glob("/docs/*", (err, files) => {
     if (!err) {
       files.forEach((srcFile) =>
         fs.copyFileSync(srcFile, path.join("dist", path.basename(srcFile)))
