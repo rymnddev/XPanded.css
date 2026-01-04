@@ -1025,42 +1025,78 @@ import "xp.css/dist/98.css";</pre>
 
     <section class="component">
       <h3 id="menus">Menus</h3>
-        <%- example(`
-          <div class="menu" style="width: 200px">
-            <ul role="menu">
-              <li role="menuitem" tabindex="0" class="bold">Bold</li>
-              <li role="menuitem" tabindex="0" aria-haspopup="true">Has Popup
-                <ul role="menu" style="width: 200px">
-                  <li role="menuitem">uh....</li>
-                  <li role="menuitem">what are you doing here?</li>
-                </ul>
-              </li>
-              <li role="menuitem" tabindex="0" class="has-divider">With Shortcut <span>Ctrl+W</span></li>
-              <li role="menuitem" tabindex="0" aria-disabled="true">Disabled</li>
-              <li role="menuitem" class="has-divider"><img src="https://img.icons8.com/fluency/12/like.png" aria-info="from icons8.com"/>With a cool icon!</li>
-              <li role="menuitem">
-                <input type="checkbox" id="check1" name="check1" />
-                <label for="check1">Check, check it out</label>
-              </li>
-              <li role="menuitem" class="has-divider">
-                <input type="checkbox" id="check2" name="check2" />
-                <label for="check2">I'm checking in</label>
-              </li>
-              <li role="menuitem">
-                <input type="radio" name="menu-example" id="radio${getNewId()}" />
-                <label for="radio${getCurrentId()}">Video killed</label>
-              </li>
-              <li role="menuitem">
-                <input type="radio" name="menu-example" id="radio${getNewId()}" />
-                <label for="radio${getCurrentId()}">The radio star</label>
-              </li>
-              <li role="menuitem">
-                <input type="radio" name="menu-example" id="radio${getNewId()}" />
-                <label for="radio${getCurrentId()}">Radio Gaga</label>
-              </li>
-            </ul>
+        <div>
+          <p>Context menus are implmented by assiging the <code>role="menu"</code> to a parent.</p>
+          <%- example(`
+            <div class="menu" style="width: 200px">
+              <ul role="menu">
+                <li role="menuitem" tabindex="0" class="bold">Bold</li>
+                <li role="menuitem" tabindex="0" aria-haspopup="true">Has Popup
+                  <ul role="menu" style="width: 200px">
+                    <li role="menuitem">uh....</li>
+                    <li role="menuitem">what are you doing here?</li>
+                  </ul>
+                </li>
+                <li role="menuitem" tabindex="0" class="has-divider">With Shortcut <span>Ctrl+W</span></li>
+                <li role="menuitem" tabindex="0" aria-disabled="true">Disabled</li>
+                <li role="menuitem" class="has-divider"><img src="https://img.icons8.com/fluency/12/like.png" aria-info="from icons8.com"/>With a cool icon!</li>
+                <li role="menuitem">
+                  <input type="checkbox" id="check1" name="check1" />
+                  <label for="check1">Check, check it out</label>
+                </li>
+                <li role="menuitem" class="has-divider">
+                  <input type="checkbox" id="check2" name="check2" />
+                  <label for="check2">I'm checking in</label>
+                </li>
+                <li role="menuitem">
+                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                  <label for="radio${getCurrentId()}">Video killed</label>
+                </li>
+                <li role="menuitem">
+                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                  <label for="radio${getCurrentId()}">The radio star</label>
+                </li>
+                <li role="menuitem">
+                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                  <label for="radio${getCurrentId()}">Radio Gaga</label>
+                </li>
+              </ul>
+            </div>
+          `) %>
+          <p>Window menus can also have nested menus.</p>
+          <%- example(`
+          <div class="window active" style="width: 600px">
+            <div class="title-bar">
+              <div class="title-bar-text">An Window With Nested Menus</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem">File
+                  <ul role="menu" style="width:200px">
+                    <li role="menuitem" tabindex="0" aria-haspopup="true">New... 
+                      <ul role="menu">
+                        <li role="menuitem">Window</li>
+                      </ul>
+                    </li>
+                    <li role="menuitem">Open... <span>Ctrl+O</span></li>
+                    <li role="menuitem">Save... <span>Ctrl+S</span></li>
+                    <li role="menuitem" class="has-divider">Save As</li>
+                    <li role="menuitem" aria-disabled="true">Print <span>Ctrl+P</span></li>
+                  </ul>
+                </li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+            </div>
           </div>
-        `) %>
+          `) %>
+        </div>
     </section>
 
     <h2 id="issues-contributing-etc">Issues, Contributing, etc.</h2>
