@@ -42,6 +42,7 @@
           </li>
           <li><a href="#tree-view">TreeView</a></li>
           <li><a href="#progress-bar">ProgressBar</a></li>
+          <li><a href="#inactive-windows">Inactive Windows</a></li>
         </ul>
       </li>
       <li><a href="#issues-contributing-etc">Issues, Contributing, etc.</a></li>
@@ -703,6 +704,30 @@ import "xp.css/dist/98.css";</pre>
         `) %>
 
         <%- example(`
+          <div class="window active" style="width: 300px">
+            <div class="title-bar">
+              <div class="title-bar-text">A Window With a Menubar</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem">File</li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+            </div>
+            <div class="window-body">
+              <p>There's so much room for activities!</p>
+            </div>
+          </div>
+        `) %>
+
+        <%- example(`
         <div class="window">
           <div class="title-bar">
             <div class="title-bar-text">Command Prompt</div>
@@ -949,6 +974,59 @@ import "xp.css/dist/98.css";</pre>
         `) %>
 
       </div>
+    </section>
+
+    <section class="component">
+      <h3 id="inactive-windows">Inactive Windows</h3> 
+        <p>Assign the <code>has-inactive-windows</code> class to a parent, and any window without the <code>active</code> class will present as below.</p>
+        <div class="has-inactive-windows">
+          <%- example(`
+          <div class="window" style="width: 600px">
+            <div class="title-bar">
+              <div class="title-bar-text">An Inactive Window With a Menubar</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem">File</li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+            </div>
+            <div class="window-body">
+              <p>There's so much room for activities!</p>
+            </div>
+          </div>
+        `) %>
+        </div>
+        <%- example(`
+          <div class="window active" style="width: 600px">
+            <div class="title-bar">
+              <div class="title-bar-text">An Active Window For Comparison</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem">File</li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+            </div>
+            <div class="window-body">
+              <p>There's so much room for activities!</p>
+            </div>
+          </div>
+        `) %>
     </section>
 
     <h2 id="issues-contributing-etc">Issues, Contributing, etc.</h2>
