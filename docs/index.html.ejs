@@ -978,49 +978,49 @@ import "xp.css/dist/98.css";</pre>
 
     <section class="component">
       <h3 id="inactive-windows">Inactive Windows</h3> 
-        <p>Assign the <code>has-inactive-windows</code> class to a parent, and any window without the <code>active</code> class will present as below.</p>
-        <div class="has-inactive-windows">
+        <div>
+          <p>Assign the <code>has-inactive-windows</code> class to a parent, and any window without the <code>active</code> class will present as below.</p>
           <%- example(`
-          <div class="window" style="width: 600px">
-            <div class="title-bar">
-              <div class="title-bar-text">An Inactive Window With a Menubar</div>
-              <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close"></button>
+          <div class="has-inactive-windows">
+            <div class="window" style="width: 600px">
+              <div class="title-bar">
+                <div class="title-bar-text">An Inactive Window With a Menubar</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button aria-label="Close"></button>
+                </div>
+              </div>
+              <div class="window-menu">
+                <ul role="menubar">
+                  <li role="menuitem" tabindex="0">File</li>
+                  <li role="menuitem" tabindex="0">Edit</li>
+                  <li role="menuitem" tabindex="0">View</li>
+                  <li role="menuitem" tabindex="0">Help</li>
+                </ul>
               </div>
             </div>
-            <div class="window-menu">
-              <ul role="menubar">
-                <li role="menuitem" tabindex="0">File</li>
-                <li role="menuitem" tabindex="0">Edit</li>
-                <li role="menuitem" tabindex="0">View</li>
-                <li role="menuitem" tabindex="0">Help</li>
-              </ul>
+            <div class="window active" style="width: 600px">
+              <div class="title-bar">
+                <div class="title-bar-text">An Active Window For Comparison</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button aria-label="Close"></button>
+                </div>
+              </div>
+              <div class="window-menu">
+                <ul role="menubar">
+                  <li role="menuitem" tabindex="0">File</li>
+                  <li role="menuitem" tabindex="0">Edit</li>
+                  <li role="menuitem" tabindex="0">View</li>
+                  <li role="menuitem" tabindex="0">Help</li>
+                </ul>
+              </div>
             </div>
           </div>
-        `) %>
+          `) %>
         </div>
-        <%- example(`
-          <div class="window active" style="width: 600px">
-            <div class="title-bar">
-              <div class="title-bar-text">An Active Window For Comparison</div>
-              <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close"></button>
-              </div>
-            </div>
-            <div class="window-menu">
-              <ul role="menubar">
-                <li role="menuitem" tabindex="0">File</li>
-                <li role="menuitem" tabindex="0">Edit</li>
-                <li role="menuitem" tabindex="0">View</li>
-                <li role="menuitem" tabindex="0">Help</li>
-              </ul>
-            </div>
-          </div>
-        `) %>
     </section>
 
     <section class="component">
