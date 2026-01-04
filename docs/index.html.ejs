@@ -992,14 +992,11 @@ import "xp.css/dist/98.css";</pre>
             </div>
             <div class="window-menu">
               <ul role="menubar">
-                <li role="menuitem">File</li>
-                <li role="menuitem">Edit</li>
-                <li role="menuitem">View</li>
-                <li role="menuitem">Help</li>
+                <li role="menuitem" tabindex="0">File</li>
+                <li role="menuitem" tabindex="0">Edit</li>
+                <li role="menuitem" tabindex="0">View</li>
+                <li role="menuitem" tabindex="0">Help</li>
               </ul>
-            </div>
-            <div class="window-body">
-              <p>There's so much room for activities!</p>
             </div>
           </div>
         `) %>
@@ -1016,15 +1013,32 @@ import "xp.css/dist/98.css";</pre>
             </div>
             <div class="window-menu">
               <ul role="menubar">
-                <li role="menuitem">File</li>
-                <li role="menuitem">Edit</li>
-                <li role="menuitem">View</li>
-                <li role="menuitem">Help</li>
+                <li role="menuitem" tabindex="0">File</li>
+                <li role="menuitem" tabindex="0">Edit</li>
+                <li role="menuitem" tabindex="0">View</li>
+                <li role="menuitem" tabindex="0">Help</li>
               </ul>
             </div>
-            <div class="window-body">
-              <p>There's so much room for activities!</p>
-            </div>
+          </div>
+        `) %>
+    </section>
+
+    <section class="component">
+      <h3 id="menus">Menus</h3>
+        <%- example(`
+          <div class="menu" style="width: 200px">
+            <ul role="menu">
+              <li role="menuitem" tabindex="0" class="bold">Bold</li>
+              <li role="menuitem" tabindex="0" aria-haspopup="true">Has Popup
+                <ul role="menu" style="width: 200px">
+                  <li role="menuitem">uh....</li>
+                  <li role="menuitem">what are you doing here?</li>
+                </ul>
+              </li>
+              <li role="menuitem" tabindex="0" class="has-divider">With Shortcut <span>Ctrl+W</span></li>
+              <li role="menuitem" tabindex="0" aria-disabled="true">Disabled</li>
+              <li role="menuitem" class="has-divider"><img src="https://img.icons8.com/fluency/12/like.png" aria-info="from icons8.com"/>With a cool icon!</li>
+            </ul>
           </div>
         `) %>
     </section>
