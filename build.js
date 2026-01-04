@@ -100,7 +100,7 @@ function buildDocs() {
     </div>`;
   }
 
-  glob("/docs/*", (err, files) => {
+  glob("docs/*", (err, files) => {
     if (!err) {
       files.forEach((srcFile) =>
         fs.copyFileSync(srcFile, path.join("dist", path.basename(srcFile)))
