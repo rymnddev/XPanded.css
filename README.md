@@ -83,3 +83,20 @@ Also please refer to [the GitHub issues page](https://github.com/jdan/98.css/iss
 ### License
 
 [MIT](https://github.com/botoxparty/XP.css/blob/main/LICENSE)
+
+### to do 
+- [ ] Menus
+- [ ] Taskbar
+  - [ ] Start Menu
+  - [ ] Taskbar buttons
+  - [ ] Clock/Notifications area
+    - [ ] Clock
+    - [ ] Notification bubbles
+- [ ] Tooltip/comments
+- [ ] Icons
+- [ ] deprecate 98.css
+- [ ] JS Library?
+  - [ ] Opening/Closing Windows
+  - [ ] Moving Windows
+  - [ ] Resizing Windows
+  - [ ] Minimising/Maximising/Restoring Windows 

@@ -1042,9 +1042,21 @@ import "xp.css/dist/98.css";</pre>
                 <input type="checkbox" id="check1" name="check1" />
                 <label for="check1">Check, check it out</label>
               </li>
-              <li role="menuitem">
+              <li role="menuitem" class="has-divider">
                 <input type="checkbox" id="check2" name="check2" />
                 <label for="check2">I'm checking in</label>
+              </li>
+              <li role="menuitem">
+                <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                <label for="radio${getCurrentId()}">Video killed</label>
+              </li>
+              <li role="menuitem">
+                <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                <label for="radio${getCurrentId()}">The radio star</label>
+              </li>
+              <li role="menuitem">
+                <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                <label for="radio${getCurrentId()}">Radio Gaga</label>
               </li>
             </ul>
           </div>

@@ -102,7 +102,7 @@ ul {
                     width: calc(100% + 20px);
                     font-size: 12px;
                     margin-left: 0px;
-                    font-family: Arial, Helvetica, sans-serif;
+                    font-family: Arial;
                     &::before {
                         display: none;
                     }
@@ -111,8 +111,33 @@ ul {
                     }
                 }
             }
-            &:hover input[type="checkbox"]+label::after {
-                background: svg-load("./icon/checkmark-menu-highlighted.svg");
+
+            input[type="radio"] {
+                +label {
+                    display: inline-block;
+                    width: calc(100% + 20px);
+                    margin-left: 0;
+                    font-size: 12px;
+                    font-family: Arial;
+                    &::before {
+                        display: none;
+                    }
+                    &::after {
+                        background: svg-load("./icon/radio-dot-black.svg")
+                    }
+                }
+                
+            }
+            &:focus input,
+            &:focus-within input,
+            &:hover input {
+                &[type="checkbox"]+label::after {
+                    background: svg-load("./icon/checkmark-menu-highlighted.svg");
+                }
+
+                &[type="radio"]+label::after {
+                    background: svg-load("./icon/radio-dot-white.svg");
+                }
             }
         }
     }
