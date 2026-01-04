@@ -93,6 +93,27 @@ ul {
                 position: absolute;
                 transform: translateX(6px);
             }
+
+            input[type="checkbox"] {
+                display: none;
+                visibility:hidden;
+                +label {
+                    display: inline-block;
+                    width: calc(100% + 20px);
+                    font-size: 12px;
+                    margin-left: 0px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    &::before {
+                        display: none;
+                    }
+                    &::after {
+                        background: svg-load("./icon/checkmark-menu.svg");
+                    }
+                }
+            }
+            &:hover input[type="checkbox"]+label::after {
+                background: svg-load("./icon/checkmark-menu-highlighted.svg");
+            }
         }
     }
 }
