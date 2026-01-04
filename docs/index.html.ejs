@@ -1027,6 +1027,16 @@ import "xp.css/dist/98.css";</pre>
       <h3 id="menus">Menus</h3>
         <div>
           <p>Context menus are implmented by assiging the <code>role="menu"</code> to a parent.</p>
+          
+          <p>Popup menus can be created by adding the attribute <code>aria-haspopup="true"</code>, and  child <code>&lt;ul&gt;</code> element with the <code>menu</code> role. Note that popup menus require either the <code>tabindex="0"</code> attribute or an <code>&lt;a&gt;</code> nchor link to maintain focus.</p>
+
+          <p>For a horizontal divider, use the class name <code>has-divider</code>.</p>
+
+          <p>Checkmarks and radio buttons require the relevant <code>&lt;input&gt;</code> types.</p>
+
+          <p>Icons can be implemented with an <code>img</code> tag. <code>12px</code> seems to be the sweet spot here.</p>
+
+          <p>Displayed shortcuts are contained within a <code>span</code> as a child of the <code>li</code>st element.</p>
           <%- example(`
             <div class="menu" style="width: 200px">
               <ul role="menu">
@@ -1065,7 +1075,7 @@ import "xp.css/dist/98.css";</pre>
           `) %>
           <p>Window menus can also have nested menus.</p>
           <%- example(`
-          <div class="window active" style="width: 600px">
+          <div class="window active" style="width: 400px">
             <div class="title-bar">
               <div class="title-bar-text">An Window With Nested Menus</div>
               <div class="title-bar-controls">
@@ -1076,7 +1086,7 @@ import "xp.css/dist/98.css";</pre>
             </div>
             <div class="window-menu">
               <ul role="menubar">
-                <li role="menuitem">File
+                <li role="menuitem" tabindex="0">File
                   <ul role="menu" style="width:200px">
                     <li role="menuitem" tabindex="0" aria-haspopup="true">New... 
                       <ul role="menu">
