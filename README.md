@@ -85,7 +85,8 @@ Also please refer to [the GitHub issues page](https://github.com/jdan/98.css/iss
 [MIT](https://github.com/botoxparty/XP.css/blob/main/LICENSE)
 
 ### to do 
-- [ ] Menus
+- [x] Menus
+- [x] Title bar icons
 - [ ] Taskbar
   - [ ] Start Menu
   - [ ] Taskbar buttons

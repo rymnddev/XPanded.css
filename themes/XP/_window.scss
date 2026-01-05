@@ -43,6 +43,10 @@
 
 .title-bar-text {
     padding-left: 3px;
+    img {
+        transform: translateY(2px);
+        margin-right: 3px;
+    }
 }
 
 .title-bar-controls {

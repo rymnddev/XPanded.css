@@ -671,9 +671,11 @@ import "xp.css/dist/98.css";</pre>
           <code>title-bar</code>, <code>title-bar-text</code>, and <code>title-bar-controls</code>.
         </p>
 
+        <p>If you want an icon in the title, implement an <code>&lt;img&gt;</code> element within <code>title-bar-text</code>.</p>
+
         <%- example(`
           <div class="title-bar">
-            <div class="title-bar-text">A Title Bar</div>
+            <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/notepad.png" alt="from https://icons8.com/"/> A Title Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Close"></button>
             </div>
@@ -688,7 +690,7 @@ import "xp.css/dist/98.css";</pre>
 
         <%- example(`
           <div class="title-bar">
-            <div class="title-bar-text">A Title Bar</div>
+            <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/star--v1.png" alt="from https://icons8.com/">A Title Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Minimize"></button>
               <button aria-label="Restore"></button>
@@ -795,7 +797,7 @@ import "xp.css/dist/98.css";</pre>
         <%- example(`
           <div class="window" style="width: 300px">
             <div class="title-bar">
-              <div class="title-bar-text">A Complete Window</div>
+              <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/error.png" alt="from https://icons8.com/"/>A Complete Window</div>
               <div class="title-bar-controls">
                 <button aria-label="Minimize"></button>
                 <button aria-label="Maximize"></button>
