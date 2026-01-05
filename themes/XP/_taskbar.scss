@@ -1,0 +1,112 @@
+/*-------------------------------------------*\
+    Taskbar
+\*-------------------------------------------*/
+
+.taskbar {
+    height: 28px;
+    width: 100%;
+    background-color: #245EDC;
+    background: linear-gradient(to bottom, #245EDC 0%, #3f8cf3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%) center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: white;
+    user-select: none;
+    overflow-x: hidden;
+
+
+    .start-button{
+        width: 95px;
+        flex-basis: 95px;
+        box-sizing: border-box;
+        height: 28px;
+        position:relative;
+        display:inline-block;
+        font-style:italic;
+        text-shadow:1px 1px 1px #333;
+        border-radius:0px 10px 15px 0px;
+        border:none;
+        transform:skewX(-3deg);
+        left: -5px;
+        
+        box-shadow: 0px 5px 10px #79ce71 inset, 
+                    -1px -1px 5px 0px rgba(0,0,0,0.75) inset, 
+                    0px 2px 5px 0px rgba(0,0,0,0.75); 
+        background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
+        label {
+            font-size:17px;
+            padding: 2px 15px 2px 15px;
+            font-weight: 500;
+            filter: drop-shadow( 1px 2px 1px rgba(0, 0, 0, .7));
+        }
+    }
+    .open-applications {
+        flex-grow: 1;
+        flex-basis: auto;
+        display: flex;
+    }
+    .notification-tray {
+        width: fit-content;
+
+        height: 28px;
+        background-color: #1189DC;
+        background: linear-gradient(to bottom, #15A8E9 0%, #18AFE6 9%, #1189DC 18%, #128AD4 92%, #0C55B8 100%) center / cover no-repeat;
+
+        display: grid;
+        grid-template-columns: 8px 77px;
+        grid-template-rows: 28px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        transition: grid-template-columns 300ms ease-in-out;
+        &:has(>[aria-label="notif-expand"] input:checked) {
+            grid-template-columns: 8px 100px; // auto doesn't work here
+
+        }
+        .clock {
+        }
+        [aria-label="notif-expand"] {
+            width: 17px;
+            height: 17px;
+            border-radius: 100%;
+            border: 1px solid #0C2A4E;
+
+            grid-area: 1 / 2 / 2 / 3; 
+            position: relative;
+            z-index: 3;
+            transform: translate(-9px, 4px);
+            background: #87CAEB;
+            background: linear-gradient(175deg,rgba(135, 202, 235, 1) 0%, rgba(15, 148, 228, 1) 47%, rgba(6, 108, 222, 1) 83%);
+            &::after {
+                content: ' ';
+                width: 17px;
+                height: 17px;
+                background-image: svg-load("./icon/caret-left.svg");
+                background-position: 1px center;
+            }
+            &:has(input:checked)::after {
+                transform: scaleX(-1);
+            }
+        }
+        .external {
+            grid-area: 1 / 1 / 2 / 2;
+            background-color: #245EDC;
+            background: linear-gradient(to bottom, #245EDC 0%, #3f8cf3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%) center / cover no-repeat;
+        }
+        .internal {
+            height: 100%;
+            grid-area: 1 / 2 / 2 / 3;
+            border-left: 1px solid #0C2A4E;
+            box-shadow: 1px -1px 3px 0px #1BC2F0 inset;
+            padding-right: 10px;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .icon-container {
+            
+        }
+    }
+}

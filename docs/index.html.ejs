@@ -690,7 +690,7 @@ import "xp.css/dist/98.css";</pre>
 
         <%- example(`
           <div class="title-bar" style="width: 400px;">
-            <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/notepad.png" alt="from https://icons8.com/"/> A Title Bar</div>
+            <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/notepad.png" aria-info="from icons8.com"/> A Title Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Close"></button>
             </div>
@@ -705,7 +705,7 @@ import "xp.css/dist/98.css";</pre>
 
         <%- example(`
           <div class="title-bar" style="width: 400px;">
-            <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/star--v1.png" alt="from https://icons8.com/">A Title Bar</div>
+            <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/star--v1.png" aria-info="from icons8.com">A Title Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Minimize"></button>
               <button aria-label="Restore"></button>
@@ -818,10 +818,10 @@ import "xp.css/dist/98.css";</pre>
                 <li role="menuitem">Help</li>
               </ul>
               <ul role="menubar" class="ribbon">
-                <li role="ribbonitem" aria-action="back"><button disabled><img src="https://img.icons8.com/flat-round/24/circled-left-2--v1.png" alt="from https://icons8.com/"/> Back</button></li>
-                <li role="ribbonitem" aria-action="forward"><button><img src="https://img.icons8.com/flat-round/24/circled-right-2--v1.png" alt="from https://icons8.com/"/></button></li>
-                <li role="ribbonitem" aria-action="up"><button><img src="https://img.icons8.com/color/24/home--v1.png" alt="home--v1" alt="from https://icons8.com/"/></button></li>
-                <li role="ribbonitem" aria-action="search"><button><img src="https://img.icons8.com/color/24/search--v1.png" alt="from https://icons8.com/"/> Search</button></li>
+                <li role="ribbonitem" aria-action="back"><button disabled><img src="https://img.icons8.com/flat-round/24/circled-left-2--v1.png" aria-info="from icons8.com"/> Back</button></li>
+                <li role="ribbonitem" aria-action="forward"><button><img src="https://img.icons8.com/flat-round/24/circled-right-2--v1.png" aria-info="from icons8.com"/></button></li>
+                <li role="ribbonitem" aria-action="up"><button><img src="https://img.icons8.com/color/24/home--v1.png" alt="home--v1" aria-info="from icons8.com"/></button></li>
+                <li role="ribbonitem" aria-action="search"><button><img src="https://img.icons8.com/color/24/search--v1.png" aria-info="from icons8.com"/> Search</button></li>
               </ul>
             </div>
           </div>
@@ -850,7 +850,7 @@ import "xp.css/dist/98.css";</pre>
         <%- example(`
           <div class="window" style="width: 300px">
             <div class="title-bar">
-              <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/error.png" alt="from https://icons8.com/"/>A Complete Window</div>
+              <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/error.png" aria-info="from icons8.com"/>A Complete Window</div>
               <div class="title-bar-controls">
                 <button aria-label="Minimize"></button>
                 <button aria-label="Maximize"></button>
@@ -1175,6 +1175,41 @@ import "xp.css/dist/98.css";</pre>
           <progress></progress>
         `) %>
 
+      </div>
+    </section>
+
+    <section class="component">
+      <h3 id="taskbar">Taskbar</h3>
+      <div>
+        <p>What would Windows be without the Taskbar and Start Button?</p>
+
+        <p>All the parts for the taskbar, including the Start Button and Notification tray, are handled using three classes: <code>start-button</code>, <code>open-applications</code> and <code>notification-tray</code>.</p>
+
+        <p>We make use of <code>aria-label</code> to render the (functioning) tray expand button. </p>
+
+        <%- example(`
+        <div class="taskbar" style="min-width: 600px;">
+          <div class="start-button" aria-label="start-button">
+            <label id="start">
+              <input type="checkbox" name="start" id="startcheck">
+              <img src="https://img.icons8.com/fluency/22/windows-logo.png" aria-info="from icons8.com"/> start
+            </label>
+            
+          </div>
+          <div class="open-applications"></div>
+          <div class="notification-tray">
+            <div class="external"></div>
+            <div class="internal">
+              <div class="icon-container">
+                <img src="https://img.icons8.com/color-glass/18/github--v1.png" aria-info="from icons8.com"/>
+              </div>
+              <div class="clock">12:12 AM</div>
+            </div>
+            <label aria-label="notif-expand"><input type="checkbox" name="notif-expand"></label>
+            
+          </div>
+        </div>
+        `) %>
       </div>
     </section>
 
