@@ -58,7 +58,7 @@
         grid-row-gap: 0px;
         transition: grid-template-columns 300ms ease-in-out;
         &:has(>[aria-label="notif-expand"] input:checked) {
-            grid-template-columns: 8px 100px; // auto doesn't work here
+            grid-template-columns: 8px 100px; 
 
         }
         .clock {
