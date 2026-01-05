@@ -32,12 +32,15 @@
           <li><a href="#text-box">TextBox</a></li>
           <li><a href="#slider">Slider</a></li>
           <li><a href="#dropdown">Dropdown</a></li>
+          <li><a href="#menus">Menus</a></li>
           <li>
             <a href="#window">Window</a>
             <ul>
               <li><a href="#title-bar">Title Bar</a></li>
+              <li><a href="#menu-bar">Menu Bar</a></li>
               <li><a href="#window-contents">Window contents</a></li>
               <li><a href="#status-bar">Status Bar</a></li>
+              <li><a href="#inactive-windows">Inactive Windows</a></li>
             </ul>
           </li>
           <li><a href="#tree-view">TreeView</a></li>
@@ -578,6 +581,61 @@ import "xp.css/dist/98.css";</pre>
       </div>
     </section>
 
+
+    <section class="component">
+      <h3 id="menus">Menus</h3>
+        <div>
+          <p>Context menus are implmented by assiging the <code>role="menu"</code> to a parent.</p>
+          
+          <p>Popup menus can be created by adding the attribute <code>aria-haspopup="true"</code>, and  child <code>&lt;ul&gt;</code> element with the <code>menu</code> role. Note that popup menus require either the <code>tabindex="0"</code> attribute or an <code>&lt;a&gt;</code> nchor link to maintain focus.</p>
+
+          <p>For a horizontal divider, use the class name <code>has-divider</code>.</p>
+
+          <p>Checkmarks and radio buttons require the relevant <code>&lt;input&gt;</code> types.</p>
+
+          <p>Icons can be implemented with an <code>img</code> tag. <code>12px</code> seems to be the sweet spot here.</p>
+
+          <p>Displayed shortcuts are contained within a <code>span</code> as a child of the <code>li</code>st element.</p>
+          <%- example(`
+            <div class="menu" style="width: 200px">
+              <ul role="menu">
+                <li role="menuitem" tabindex="0" class="bold">Bold</li>
+                <li role="menuitem" tabindex="0" aria-haspopup="true">Has Popup
+                  <ul role="menu" style="width: 200px">
+                    <li role="menuitem">uh....</li>
+                    <li role="menuitem">what are you doing here?</li>
+                  </ul>
+                </li>
+                <li role="menuitem" tabindex="0" class="has-divider">With Shortcut <span>Ctrl+W</span></li>
+                <li role="menuitem" tabindex="0" aria-disabled="true">Disabled</li>
+                <li role="menuitem" class="has-divider"><img src="https://img.icons8.com/fluency/12/like.png" aria-info="from icons8.com"/>With a cool icon!</li>
+                <li role="menuitem">
+                  <input type="checkbox" id="check1" name="check1" />
+                  <label for="check1">Check, check it out</label>
+                </li>
+                <li role="menuitem" class="has-divider">
+                  <input type="checkbox" id="check2" name="check2" />
+                  <label for="check2">I'm checking in</label>
+                </li>
+                <li role="menuitem">
+                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                  <label for="radio${getCurrentId()}">Video killed</label>
+                </li>
+                <li role="menuitem">
+                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                  <label for="radio${getCurrentId()}">The radio star</label>
+                </li>
+                <li role="menuitem">
+                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
+                  <label for="radio${getCurrentId()}">Radio Gaga</label>
+                </li>
+              </ul>
+            </div>
+          `) %>
+        </div>
+    </section>
+
+
     <h3 id="window">Window</h3>
     <p>
       The following components illustrate how to build complete windows using
@@ -652,6 +710,71 @@ import "xp.css/dist/98.css";</pre>
     </section>
 
     <section class="component">
+      <h4 id="menu-bar">Menu Bar</h4>
+      <div>
+
+        <p>
+          You can build a complete menu bar by making use of one <code>&lt;ul&gt;</code> element with the attribute <code>role=menubar</code>. Child <code>&lt;li&gt;</code> elemnts should have the role <code>menuitem</code>, like the <a href="#menus">Menu</a> element.
+        </p>
+
+        <%- example(`
+          <div class="window active" style="width: 300px">
+            <div class="title-bar">
+              <div class="title-bar-text">A Window With a Menubar</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem">File</li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+            </div>
+          </div>
+        `) %>
+
+        <p>Window menus can also have nested menus.</p>
+          <%- example(`
+          <div class="window active" style="width: 400px">
+            <div class="title-bar">
+              <div class="title-bar-text">An Window With Nested Menus</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem" tabindex="0">File
+                  <ul role="menu" style="width:200px">
+                    <li role="menuitem" tabindex="0" aria-haspopup="true">New... 
+                      <ul role="menu">
+                        <li role="menuitem">Window</li>
+                      </ul>
+                    </li>
+                    <li role="menuitem">Open... <span>Ctrl+O</span></li>
+                    <li role="menuitem">Save... <span>Ctrl+S</span></li>
+                    <li role="menuitem" class="has-divider">Save As</li>
+                    <li role="menuitem" aria-disabled="true">Print <span>Ctrl+P</span></li>
+                  </ul>
+                </li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+            </div>
+          </div>
+          `) %>
+      </div>
+    </section>
+
+    <section class="component">
       <h4 id="window-contents">Window contents</h4>
       <div>
         <blockquote>
@@ -703,29 +826,6 @@ import "xp.css/dist/98.css";</pre>
           </div>
         `) %>
 
-        <%- example(`
-          <div class="window active" style="width: 300px">
-            <div class="title-bar">
-              <div class="title-bar-text">A Window With a Menubar</div>
-              <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close"></button>
-              </div>
-            </div>
-            <div class="window-menu">
-              <ul role="menubar">
-                <li role="menuitem">File</li>
-                <li role="menuitem">Edit</li>
-                <li role="menuitem">View</li>
-                <li role="menuitem">Help</li>
-              </ul>
-            </div>
-            <div class="window-body">
-              <p>There's so much room for activities!</p>
-            </div>
-          </div>
-        `) %>
 
         <%- example(`
         <div class="window">
@@ -848,6 +948,53 @@ import "xp.css/dist/98.css";</pre>
       `) %>
 
       
+    </section>
+
+    <section class="component">
+      <h4 id="inactive-windows">Inactive Windows</h3> 
+        <div>
+          <p>Assign the <code>has-inactive-windows</code> class to a parent, and any window without the <code>active</code> class will present as below.</p>
+          <%- example(`
+          <div class="has-inactive-windows">
+            <div class="window" style="width: 600px">
+              <div class="title-bar">
+                <div class="title-bar-text">An Inactive Window With a Menubar</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button aria-label="Close"></button>
+                </div>
+              </div>
+              <div class="window-menu">
+                <ul role="menubar">
+                  <li role="menuitem" tabindex="0">File</li>
+                  <li role="menuitem" tabindex="0">Edit</li>
+                  <li role="menuitem" tabindex="0">View</li>
+                  <li role="menuitem" tabindex="0">Help</li>
+                </ul>
+              </div>
+            </div>
+            <div class="window active" style="width: 600px">
+              <div class="title-bar">
+                <div class="title-bar-text">An Active Window For Comparison</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button aria-label="Close"></button>
+                </div>
+              </div>
+              <div class="window-menu">
+                <ul role="menubar">
+                  <li role="menuitem" tabindex="0">File</li>
+                  <li role="menuitem" tabindex="0">Edit</li>
+                  <li role="menuitem" tabindex="0">View</li>
+                  <li role="menuitem" tabindex="0">Help</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          `) %>
+        </div>
     </section>
 
     <section class="component">
@@ -976,138 +1123,6 @@ import "xp.css/dist/98.css";</pre>
       </div>
     </section>
 
-    <section class="component">
-      <h3 id="inactive-windows">Inactive Windows</h3> 
-        <div>
-          <p>Assign the <code>has-inactive-windows</code> class to a parent, and any window without the <code>active</code> class will present as below.</p>
-          <%- example(`
-          <div class="has-inactive-windows">
-            <div class="window" style="width: 600px">
-              <div class="title-bar">
-                <div class="title-bar-text">An Inactive Window With a Menubar</div>
-                <div class="title-bar-controls">
-                  <button aria-label="Minimize"></button>
-                  <button aria-label="Maximize"></button>
-                  <button aria-label="Close"></button>
-                </div>
-              </div>
-              <div class="window-menu">
-                <ul role="menubar">
-                  <li role="menuitem" tabindex="0">File</li>
-                  <li role="menuitem" tabindex="0">Edit</li>
-                  <li role="menuitem" tabindex="0">View</li>
-                  <li role="menuitem" tabindex="0">Help</li>
-                </ul>
-              </div>
-            </div>
-            <div class="window active" style="width: 600px">
-              <div class="title-bar">
-                <div class="title-bar-text">An Active Window For Comparison</div>
-                <div class="title-bar-controls">
-                  <button aria-label="Minimize"></button>
-                  <button aria-label="Maximize"></button>
-                  <button aria-label="Close"></button>
-                </div>
-              </div>
-              <div class="window-menu">
-                <ul role="menubar">
-                  <li role="menuitem" tabindex="0">File</li>
-                  <li role="menuitem" tabindex="0">Edit</li>
-                  <li role="menuitem" tabindex="0">View</li>
-                  <li role="menuitem" tabindex="0">Help</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          `) %>
-        </div>
-    </section>
-
-    <section class="component">
-      <h3 id="menus">Menus</h3>
-        <div>
-          <p>Context menus are implmented by assiging the <code>role="menu"</code> to a parent.</p>
-          
-          <p>Popup menus can be created by adding the attribute <code>aria-haspopup="true"</code>, and  child <code>&lt;ul&gt;</code> element with the <code>menu</code> role. Note that popup menus require either the <code>tabindex="0"</code> attribute or an <code>&lt;a&gt;</code> nchor link to maintain focus.</p>
-
-          <p>For a horizontal divider, use the class name <code>has-divider</code>.</p>
-
-          <p>Checkmarks and radio buttons require the relevant <code>&lt;input&gt;</code> types.</p>
-
-          <p>Icons can be implemented with an <code>img</code> tag. <code>12px</code> seems to be the sweet spot here.</p>
-
-          <p>Displayed shortcuts are contained within a <code>span</code> as a child of the <code>li</code>st element.</p>
-          <%- example(`
-            <div class="menu" style="width: 200px">
-              <ul role="menu">
-                <li role="menuitem" tabindex="0" class="bold">Bold</li>
-                <li role="menuitem" tabindex="0" aria-haspopup="true">Has Popup
-                  <ul role="menu" style="width: 200px">
-                    <li role="menuitem">uh....</li>
-                    <li role="menuitem">what are you doing here?</li>
-                  </ul>
-                </li>
-                <li role="menuitem" tabindex="0" class="has-divider">With Shortcut <span>Ctrl+W</span></li>
-                <li role="menuitem" tabindex="0" aria-disabled="true">Disabled</li>
-                <li role="menuitem" class="has-divider"><img src="https://img.icons8.com/fluency/12/like.png" aria-info="from icons8.com"/>With a cool icon!</li>
-                <li role="menuitem">
-                  <input type="checkbox" id="check1" name="check1" />
-                  <label for="check1">Check, check it out</label>
-                </li>
-                <li role="menuitem" class="has-divider">
-                  <input type="checkbox" id="check2" name="check2" />
-                  <label for="check2">I'm checking in</label>
-                </li>
-                <li role="menuitem">
-                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
-                  <label for="radio${getCurrentId()}">Video killed</label>
-                </li>
-                <li role="menuitem">
-                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
-                  <label for="radio${getCurrentId()}">The radio star</label>
-                </li>
-                <li role="menuitem">
-                  <input type="radio" name="menu-example" id="radio${getNewId()}" />
-                  <label for="radio${getCurrentId()}">Radio Gaga</label>
-                </li>
-              </ul>
-            </div>
-          `) %>
-          <p>Window menus can also have nested menus.</p>
-          <%- example(`
-          <div class="window active" style="width: 400px">
-            <div class="title-bar">
-              <div class="title-bar-text">An Window With Nested Menus</div>
-              <div class="title-bar-controls">
-                <button aria-label="Minimize"></button>
-                <button aria-label="Maximize"></button>
-                <button aria-label="Close"></button>
-              </div>
-            </div>
-            <div class="window-menu">
-              <ul role="menubar">
-                <li role="menuitem" tabindex="0">File
-                  <ul role="menu" style="width:200px">
-                    <li role="menuitem" tabindex="0" aria-haspopup="true">New... 
-                      <ul role="menu">
-                        <li role="menuitem">Window</li>
-                      </ul>
-                    </li>
-                    <li role="menuitem">Open... <span>Ctrl+O</span></li>
-                    <li role="menuitem">Save... <span>Ctrl+S</span></li>
-                    <li role="menuitem" class="has-divider">Save As</li>
-                    <li role="menuitem" aria-disabled="true">Print <span>Ctrl+P</span></li>
-                  </ul>
-                </li>
-                <li role="menuitem">Edit</li>
-                <li role="menuitem">View</li>
-                <li role="menuitem">Help</li>
-              </ul>
-            </div>
-          </div>
-          `) %>
-        </div>
-    </section>
 
     <h2 id="issues-contributing-etc">Issues, Contributing, etc.</h2>
 
