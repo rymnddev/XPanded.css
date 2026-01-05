@@ -38,6 +38,7 @@
             <ul>
               <li><a href="#title-bar">Title Bar</a></li>
               <li><a href="#menu-bar">Menu Bar</a></li>
+              <li><a href="#ribbon">Ribbon</a></li>
               <li><a href="#window-contents">Window contents</a></li>
               <li><a href="#status-bar">Status Bar</a></li>
               <li><a href="#inactive-windows">Inactive Windows</a></li>
@@ -688,7 +689,7 @@ import "xp.css/dist/98.css";</pre>
         <p>If you want an icon in the title, implement an <code>&lt;img&gt;</code> element within <code>title-bar-text</code>.</p>
 
         <%- example(`
-          <div class="title-bar">
+          <div class="title-bar" style="width: 400px;">
             <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/notepad.png" alt="from https://icons8.com/"/> A Title Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Close"></button>
@@ -703,7 +704,7 @@ import "xp.css/dist/98.css";</pre>
         </p>
 
         <%- example(`
-          <div class="title-bar">
+          <div class="title-bar" style="width: 400px;">
             <div class="title-bar-text"><img src="https://img.icons8.com/fluency/16/star--v1.png" alt="from https://icons8.com/">A Title Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Minimize"></button>
@@ -714,7 +715,7 @@ import "xp.css/dist/98.css";</pre>
 
           <br>
 
-          <div class="title-bar">
+          <div class="title-bar" style="width: 400px;">
             <div class="title-bar-text">A Helpful Bar</div>
             <div class="title-bar-controls">
               <button aria-label="Help"></button>
@@ -787,6 +788,44 @@ import "xp.css/dist/98.css";</pre>
             </div>
           </div>
           `) %>
+      </div>
+    </section>
+
+    <section class="component">
+      <h4 id="ribbon">Ribbon</h4>
+      <div>
+        <p>A ribbon is a type of menu bar that contains more options and tools, often with accompanying icons.</p>
+        <p>
+          Assign the <code>ribbon</code> class to a <code>&lt;ul&gt;</code> element with the attribute <code>role="menubar"</code>. Subsequent <code>li</code>st items should have the role <code>ribbonitem</code>. For icons, just include an <code>&lt;img&gt;</code>.
+        </p>
+        <p>To disable an option, apply the <code>disabled</code> attribute to the <code>&lt;button&gt;</code> parent.</p>
+
+        <%- example(`
+          <div class="window active" style="width: 700px">
+            <div class="title-bar">
+              <div class="title-bar-text">A Window With a Ribbon</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-menu">
+              <ul role="menubar">
+                <li role="menuitem">File</li>
+                <li role="menuitem">Edit</li>
+                <li role="menuitem">View</li>
+                <li role="menuitem">Help</li>
+              </ul>
+              <ul role="menubar" class="ribbon">
+                <li role="ribbonitem" aria-action="back"><button disabled><img src="https://img.icons8.com/flat-round/24/circled-left-2--v1.png" alt="from https://icons8.com/"/> Back</button></li>
+                <li role="ribbonitem" aria-action="forward"><button><img src="https://img.icons8.com/flat-round/24/circled-right-2--v1.png" alt="from https://icons8.com/"/></button></li>
+                <li role="ribbonitem" aria-action="up"><button><img src="https://img.icons8.com/color/24/home--v1.png" alt="home--v1" alt="from https://icons8.com/"/></button></li>
+                <li role="ribbonitem" aria-action="search"><button><img src="https://img.icons8.com/color/24/search--v1.png" alt="from https://icons8.com/"/> Search</button></li>
+              </ul>
+            </div>
+          </div>
+        `) %>
       </div>
     </section>
 

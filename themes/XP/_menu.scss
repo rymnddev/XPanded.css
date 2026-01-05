@@ -33,7 +33,50 @@ ul {
                 }
             }
         }
-    }
+
+        &.ribbon {
+            height: 34px;
+            align-items: center;
+            [role="ribbonitem"]{
+                height: 100%;
+                button {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    background: transparent;
+                    background-color: transparent;
+                    border: 1px solid transparent;
+                    min-width: unset;
+                    width: fit-content;
+                    padding: 0 6px;
+                    gap: 6px;
+                        &:hover,
+                        &:focus,
+                        &:focus-within {
+                            background: linear-gradient(180deg, #ffffff00, #ecebe5 86%, #d8d0c4);
+                            border: 1px solid #B6B3A1;
+                            box-shadow: none;
+                        }
+                        &:has(>img){
+                            gap:6px;
+                        }
+                        &[disabled] {
+                        &:hover,
+                        &:focus,
+                        &:focus-within {
+                            background: none;
+                            border: 1px solid transparent;
+                            box-shadow: none;
+                        }
+                        >img {
+                            filter: grayscale(1)
+                        } 
+                        }
+                    }
+
+                }
+            }
+        }
 
     [role="menuitem"] {
         position: relative;

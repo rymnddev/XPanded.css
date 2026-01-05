@@ -94,6 +94,7 @@ Also please refer to [the GitHub issues page](https://github.com/jdan/98.css/iss
     - [ ] Clock
     - [ ] Notification bubbles
 - [ ] Tooltip/comments
+  - [ ] Bubble tips 
 - [ ] Icons
 - [ ] deprecate 98.css
 - [ ] JS Library?
