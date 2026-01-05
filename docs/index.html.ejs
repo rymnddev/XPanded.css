@@ -585,6 +585,13 @@ import "xp.css/dist/98.css";</pre>
     <section class="component">
       <h3 id="menus">Menus</h3>
         <div>
+          <blockquote>
+            <em>Menus</em> display a list of commands available to the user. Because menus make commands visible and discoverable, you can use them to leverage the greater capacity people have for recognizing commands than for remembering them.
+
+            <footer>
+              &mdash; Microsoft Windows User Experience p. 107
+            </footer>
+          </blockquote>
           <p>Context menus are implmented by assiging the <code>role="menu"</code> to a parent.</p>
           
           <p>Popup menus can be created by adding the attribute <code>aria-haspopup="true"</code>, and  child <code>&lt;ul&gt;</code> element with the <code>menu</code> role. Note that popup menus require either the <code>tabindex="0"</code> attribute or an <code>&lt;a&gt;</code> nchor link to maintain focus.</p>
@@ -632,6 +639,13 @@ import "xp.css/dist/98.css";</pre>
               </ul>
             </div>
           `) %>
+        <blockquote>
+            However, be aware that cascading menus add complexity to the menu interface by requiring theuser to navigate further through the menu structure to get to a particular choice. 
+
+          <footer>
+            &mdash; Microsoft Windows User Experience p. 116
+          </footer>
+        </blockquote>
         </div>
     </section>
 
@@ -716,7 +730,7 @@ import "xp.css/dist/98.css";</pre>
       <div>
 
         <p>
-          You can build a complete menu bar by making use of one <code>&lt;ul&gt;</code> element with the attribute <code>role=menubar</code>. Child <code>&lt;li&gt;</code> elemnts should have the role <code>menuitem</code>, like the <a href="#menus">Menu</a> element.
+          You can build a complete menu bar by making use of one <code>&lt;ul&gt;</code> element with the attribute <code>role="menubar"</code>. Child <code>&lt;li&gt;</code> elemnts should have the role <code>menuitem</code>, like the <a href="#menus">Menu</a> element.
         </p>
 
         <%- example(`
@@ -740,7 +754,7 @@ import "xp.css/dist/98.css";</pre>
           </div>
         `) %>
 
-        <p>Window menus can also have nested menus.</p>
+        <p>Window menus can also cascade.</p>
           <%- example(`
           <div class="window active" style="width: 400px">
             <div class="title-bar">
