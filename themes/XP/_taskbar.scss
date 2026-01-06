@@ -6,19 +6,16 @@
 
 .taskbar {
     height: 28px;
-    width: 100%;
     background-color: #245EDC;
     background: linear-gradient(to bottom, #245EDC 0%, #3f8cf3 9%, #245EDC 18%, #245EDC 92%, #1941A5 100%) center / cover no-repeat;
     display: flex;
     align-items: center;
     color: white;
     user-select: none;
-    overflow-x: hidden;
-
+    overflow: hidden;
 
     .start-button{
-        width: 95px;
-        flex-basis: 95px;
+        flex: 0 0 95px;
         box-sizing: border-box;
         height: 28px;
         position:relative;
@@ -41,10 +38,39 @@
             filter: drop-shadow( 1px 2px 1px rgba(0, 0, 0, .7));
         }
     }
-    .open-applications {
-        flex-grow: 1;
-        flex-basis: auto;
+    .running-applications {
         display: flex;
+        flex: 1;
+        gap: 1px;
+        padding-right: 10px;
+        width: 100%;
+        overflow: hidden;
+        .app-button{
+            box-sizing: border-box;
+            flex: 0 1 157px;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            height: 22px;
+            background: #478DF1;
+            background: linear-gradient(180deg, rgba(71, 141, 241, 1) 0%, rgba(69, 135, 240, 1) 4%, rgba(63, 129, 238, 1) 8%, rgba(56, 122, 238, 1) 16%, rgba(55, 124, 240, 1) 61%, rgba(53, 119, 234, 1) 94%) ;
+            color: white;
+            border-radius: 3px;
+            gap: 5px;
+            padding: 0 7px;
+            box-shadow: 0px 4px 5px -5px rgba(255,255,255,0.7) inset, -4px -4px 5px -5px rgba(44,96,208,0.7) inset;
+            border: 1px solid rgba(44,96,208,0.7);
+            overflow: hidden;
+            span {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;            
+            }
+            &.active {
+                background: #194AA8;
+                box-shadow: 4px 6px 5px -5px rgba(0,0,0,0.7) inset;
+            }
+        }
     }
     .notification-tray {
         width: fit-content;
@@ -54,6 +80,7 @@
         background: linear-gradient(to bottom, #15A8E9 0%, #18AFE6 9%, #1189DC 18%, #128AD4 92%, #0C55B8 100%) center / cover no-repeat;
 
         display: grid;
+        flex: 0 0 85px;
         grid-template-columns: 8px 77px;
         grid-template-rows: 28px;
         grid-column-gap: 0px;

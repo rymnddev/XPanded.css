@@ -1188,26 +1188,39 @@ import "xp.css/dist/98.css";</pre>
 
         <p>We make use of <code>aria-label</code> to render the (functioning) tray expand button. </p>
 
+        <p>Taskbar buttons (<code>app-button</code> class) go into the <code>running-applications</code> element. The tabs will resize if there are too many to fit in the space. The <code>active</code> class is for <a href="#inactive-windows">active/inactive windows</a></p>
+
         <%- example(`
-        <div class="taskbar" style="min-width: 600px;">
-          <div class="start-button" aria-label="start-button">
-            <label id="start">
-              <input type="checkbox" name="start" id="startcheck">
-              <img src="https://img.icons8.com/fluency/22/windows-logo.png" aria-info="from icons8.com"/> start
-            </label>
-            
-          </div>
-          <div class="open-applications"></div>
-          <div class="notification-tray">
-            <div class="external"></div>
-            <div class="internal">
-              <div class="icon-container">
-                <img src="https://img.icons8.com/color-glass/18/github--v1.png" aria-info="from icons8.com"/>
-              </div>
-              <div class="clock">12:12 AM</div>
+        <div class="desktop" style="width: 900px;">
+          <div class="taskbar">
+            <div class="start-button" aria-label="start-button">
+              <label id="start">
+                <input type="checkbox" name="start" id="startcheck">
+                <img src="https://img.icons8.com/fluency/22/windows-logo.png" aria-info="from icons8.com"/> start
+              </label>
+          
             </div>
-            <label aria-label="notif-expand"><input type="checkbox" name="notif-expand"></label>
-            
+            <div class="running-applications">
+              <div class="app-button active">
+                <img src="https://img.icons8.com/office/16/command-line.png" aria-label="from icons8.com">
+                <span> Command Prompt</span>
+              </div>
+              <div class="app-button">
+                <img src="https://img.icons8.com/color/16/internet-explorer.png" aria-label="from icons8.com">
+                <span> how to center a div - Google Search</span>
+              </div>
+            </div>
+            <div class="notification-tray">
+              <div class="external"></div>
+              <div class="internal">
+                <div class="icon-container">
+                  <img src="https://img.icons8.com/color-glass/18/github--v1.png" aria-info="from icons8.com"/>
+                </div>
+                <div class="clock">12:12 AM</div>
+              </div>
+              <label aria-label="notif-expand"><input type="checkbox" name="notif-expand"></label>
+          
+            </div>
           </div>
         </div>
         `) %>
